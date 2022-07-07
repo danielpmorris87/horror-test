@@ -9,8 +9,7 @@ public class DoorController : Interactable
     [SerializeField] private AudioClip doorLockedSound;
     [SerializeField] private AudioClip doorOpenSound;
     public string sceneToTeleportTo;
-
-    public string outgoingTelepoint { get; set; }
+    public string outgoingTelepoint;
 
     protected override void Interact()
     {
