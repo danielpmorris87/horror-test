@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Apt103KeyPickup : Interactable
 {
-    public AudioClip _clip;
+    [SerializeField] private AudioClip _clip;
 
     protected override void Interact()
     {
