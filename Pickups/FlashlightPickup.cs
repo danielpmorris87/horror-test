@@ -10,7 +10,7 @@ public class FlashlightPickup : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
-            InventoryController.hasFlashlight = true;
+            InventoryController.Instance.HasFlashlight = true;
             AudioSource.PlayClipAtPoint(_clip, transform.position);
             Destroy(gameObject);
         }

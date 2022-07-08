@@ -19,14 +19,12 @@ public class DoorController : Interactable
         {
             AudioSource.PlayClipAtPoint(doorLockedSound, transform.position);
         }
-        else if (doorIsLocked == false)
-        {
-            AudioSource.PlayClipAtPoint(doorOpenSound, transform.position);
-            SceneManager.LoadScene(sceneToTeleportTo);
-        }
         else
         {
-            Debug.Log("Unknown error on the DoorController script");
+            outgoingTelepoint = SceneController.Instance.incomingTelepoint;
+            AudioSource.PlayClipAtPoint(doorOpenSound, transform.position);
+            SceneController.Instance.IncomingTeleport();
+            //SceneManager.LoadScene(sceneToTeleportTo);
         }
     }
 }

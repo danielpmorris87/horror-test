@@ -8,7 +8,7 @@ public class Apt103KeyPickup : Interactable
 
     protected override void Interact()
     {
-        InventoryController.hasApt103Key = true;
+        InventoryController.Instance.HasApt103Key = true;
         AudioSource.PlayClipAtPoint(_clip, transform.position);
         Destroy(gameObject);
     }

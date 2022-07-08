@@ -19,7 +19,7 @@ public class FlashlightController : MonoBehaviour
 
         if (Input.GetKeyDown("f"))
         {
-            if (InventoryController.hasFlashlight)
+            if (InventoryController.Instance.HasFlashlight)
             {
                 audioSource.PlayOneShot(flashlightClip);
                 myFlashlight.enabled = !myFlashlight.enabled;
