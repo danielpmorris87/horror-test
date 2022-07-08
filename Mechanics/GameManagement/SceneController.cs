@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    // VARS
+    // INCOMING SCENE/TELEPORTER/PLAYER INFORMATION
+    public string IncomingScene { get; set; }
+    public string IncomingTeleporter { get; set; }
     public GameObject playerCharacter;
-    public string incomingTelepoint;
+    public GameObject telePoint;
 
     private static SceneController _instance;
     public static SceneController Instance
@@ -32,15 +35,25 @@ public class SceneController : MonoBehaviour
             _instance = this;
         }
         DontDestroyOnLoad(this);
+        Debug.Log("Incoming scene: " + IncomingScene);
+        Debug.Log("Incoming teleporter: " + IncomingTeleporter);
     }
 
     void Start()
     {
-        //Debug.Log("Incoming teleport: " + incomingTelepoint);
+        //
     }
 
-    public void IncomingTeleport()
+    public void TeleportToNewScene()
     {
-        Debug.Log("Incoming teleport: " + incomingTelepoint);
+        SceneManager.LoadScene(IncomingScene);
+        MovePlayerAfterTP();
+    }
+
+    public void MovePlayerAfterTP()
+    {
+        GameObject telePoint = GameObject.Find(IncomingTeleporter);
+        Debug.Log("Teleporter found: " + telePoint);
+        //playerCharacter.transform.position = telePoint.transform.position;
     }
 }

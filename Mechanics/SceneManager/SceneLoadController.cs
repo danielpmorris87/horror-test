@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoadController : MonoBehaviour
 {
     public GameObject[] teleportPoints;
-    public GameObject playerCharacter;
+    //public GameObject playerCharacter;
 
     void Start()
     {
@@ -22,7 +22,7 @@ public class SceneLoadController : MonoBehaviour
 
     void FindPlayerGameObject()
     {
-        playerCharacter = GameObject.FindGameObjectWithTag("Player");
+        //playerCharacter = GameObject.FindGameObjectWithTag("Player");
     }
 
     static void MovePlayerToTP()

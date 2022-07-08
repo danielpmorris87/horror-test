@@ -1,14 +1,13 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DoorController : Interactable
 {
     [SerializeField] private bool doorIsLocked;
     [SerializeField] private AudioClip doorLockedSound;
     [SerializeField] private AudioClip doorOpenSound;
-    public string sceneToTeleportTo;
+    public string outgoingScene;
     public string outgoingTelepoint;
 
     protected override void Interact()
@@ -21,10 +20,10 @@ public class DoorController : Interactable
         }
         else
         {
-            outgoingTelepoint = SceneController.Instance.incomingTelepoint;
             AudioSource.PlayClipAtPoint(doorOpenSound, transform.position);
-            SceneController.Instance.IncomingTeleport();
-            //SceneManager.LoadScene(sceneToTeleportTo);
+            SceneController.Instance.IncomingScene = outgoingScene;
+            SceneController.Instance.IncomingTeleporter = outgoingTelepoint;
+            SceneController.Instance.TeleportToNewScene();
         }
     }
 }
