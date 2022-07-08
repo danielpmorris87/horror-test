@@ -9,7 +9,7 @@ public class TeleportPoint : MonoBehaviour
     {
         rend = GetComponentsInChildren<Renderer>();
 
-        foreach (Renderer rend in rend)
-        rend.enabled = false;
+        foreach (Renderer r in rend)
+        r.enabled = false;
     }
 }
